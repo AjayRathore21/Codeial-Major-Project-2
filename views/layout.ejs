@@ -1,0 +1,31 @@
+<!--    this is the permanent layout of your codeial website -->
+<html>   
+    <head>
+        <title>
+            <%= title%>
+    
+        </title>
+        
+
+        <!-- express assets folder ko khud k pass save rakhtaa h or hmne app.use me bhi likh rakhaa h. so ../assets/css yhe likhne se kaam nahi hoga..simpaly use kro /css -->
+
+        <link rel="stylesheet" href="/css/layouts.css"> 
+        <%- style %>
+
+    </head>  
+    
+
+    <body>
+        <!-- synax for including header partial. note that extension is not required in the name -->
+
+        <%- include('_header'); %>  
+        
+         <!-- here body palce is autofile by profile and home page content. the ejs layout library is responsible for this -->
+
+        <%-body%>          
+
+        <%- include('_footer'); %>
+        
+    </body>
+    <%- script%>
+</html>

@@ -1,5 +1,6 @@
 module.exports.home = function(req,res){
-    return res.end('<h1> Our Express Server is Runing Up</h1>')
-};
+    return res.render('home',{
+        title:"home",
+    })
 
-//module.exports.actionName = function(){};
+}

@@ -1,6 +1,15 @@
 const express = require('express');
 const app = express();
 const port = 2000;
+const db = require('./config/mongoose');
+const expresslayouts = require('express-ejs-layouts');
+app.use(expresslayouts);
+
+// extrecting style and script from the different pages and putting into layout
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);   // i had done spelling mistake in extractstyles. keep it on the mind
+
+app.use(express.static('./assets'));  
 
 // use of express router
 app.use('/',require('./routes'));
