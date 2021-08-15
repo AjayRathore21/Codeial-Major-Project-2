@@ -1,17 +1,21 @@
 const express = require('express');
 const app = express();
-const port = 2000;
+const port = 20000;
+const cookieParser = require('cookie-parser');     // cookie parser is require
 const db = require('./config/mongoose');
 const expresslayouts = require('express-ejs-layouts');
 app.use(expresslayouts);
 
+app.use(express.urlencoded());
+app.use(cookieParser());
+
 // extrecting style and script from the different pages and putting into layout
 app.set('layout extractStyles',true);
-app.set('layout extractScripts',true);   // i had done spelling mistake in extractstyles. keep it on the mind
+app.set('layout extractScripts',true);   // i had done spelling mistake in extractstyles. keep it in the mind
 
 app.use(express.static('./assets'));  
 
-// use of express router
+// use of express router 
 app.use('/',require('./routes'));
 
 // setting up our ejs view engine

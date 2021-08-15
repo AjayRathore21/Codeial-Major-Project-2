@@ -9,13 +9,17 @@ router.get('/profile',users_controller.profile);
 router.get('/post',users_controller.post);
 
 
-//SignIn router
+//SignIn page router
 
-router.get('/signin',users_controller.createsession);
+router.get('/signin',users_controller.signin);
 
 
-//SignUp router
-router.get('/signup',users_controller.create);
+//SignUp page router
+router.get('/signup',users_controller.signup);
+
+// sign up create user router
+
+router.post('/create',users_controller.create);
 
 
 
