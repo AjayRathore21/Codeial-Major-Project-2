@@ -1,10 +1,20 @@
 const express = require('express');
 const app = express();
-const port = 20000;
+const port = 2000;
 const cookieParser = require('cookie-parser');     // cookie parser is require
 const db = require('./config/mongoose');
 const expresslayouts = require('express-ejs-layouts');
+
+// used for session cookies
+
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
+
 app.use(expresslayouts);
+
+
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -15,14 +25,37 @@ app.set('layout extractScripts',true);   // i had done spelling mistake in extra
 
 app.use(express.static('./assets'));  
 
+
+
+
+
 // use of express router 
-app.use('/',require('./routes'));
+//app.use('/',require('./routes'));
 
 // setting up our ejs view engine
 
 app.set('view engine','ejs');
 app.set('views','./views');
 
+// session middleware
+app.use(session({
+    name:'Codeial',
+    secret:'blahsomething',
+    saveUninitialized:false,
+    resave:false,
+    cookie:{
+        maxAge:(60*1000*100),   // time in milliseconds
+    }
+
+
+
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// use of express router 
+app.use('/',require('./routes'));
 
 
 app.listen(port,function(err){

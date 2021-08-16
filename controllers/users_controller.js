@@ -58,10 +58,16 @@ module.exports.create = function(req,res){
             });
         }
         else{
-            return res.redirect('back');
+            return res.redirect('/users/signin');
         }
     });
 
 
    
 };
+
+
+module.exports.createsession = function(req,res){
+
+    return res.redirect('/users/profile');
+}
