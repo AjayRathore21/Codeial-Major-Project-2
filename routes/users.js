@@ -3,7 +3,7 @@ const router = express.Router();
 const users_controller  = require('../controllers/users_controller');
 const passport = require('passport');
 
-router.get('/profile',users_controller.profile);
+router.get('/profile',passport.checkAuthentication,users_controller.profile); // always pass fn into the middleware not call
 
 // post controller assignment
 
@@ -22,7 +22,7 @@ router.get('/signup',users_controller.signup);
 
 router.post('/create',users_controller.create);
 
-
+//use passport as middleware to authenticate
 router.post('/createsession',passport.authenticate(
     'local',
     {

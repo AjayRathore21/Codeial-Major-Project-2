@@ -39,7 +39,7 @@ app.set('views','./views');
 
 // session middleware
 app.use(session({
-    name:'Codeial',
+    name:'Codeial',  // change the secret before deployment
     secret:'blahsomething',
     saveUninitialized:false,
     resave:false,
@@ -53,7 +53,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(passport.setAuthenticatedUser);
 // use of express router 
 app.use('/',require('./routes'));
 
