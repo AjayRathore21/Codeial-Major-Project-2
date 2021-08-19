@@ -2,6 +2,10 @@
 const User = require('../models/users')
 
 module.exports.profile = function(req,res){
+
+    // if(!req.cookie){
+    //  return res.redirect('/users/signin');
+    
     return res.render('profile',{
 
         title:"profile page",
