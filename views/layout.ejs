@@ -10,6 +10,9 @@
         <!-- express assets folder ko khud k pass save rakhtaa h or hmne app.use me bhi likh rakhaa h. so ../assets/css yhe likhne se kaam nahi hoga..simpaly use kro /css -->
 
         <link rel="stylesheet" href="/css/layouts.css"> 
+        <link rel="stylesheet" href="/css/header.css"> 
+        <link rel="stylesheet" href="/css/footer.css"> 
+
         <%- style %>
 
     </head>  
@@ -21,8 +24,11 @@
         <%- include('_header'); %>  
         
          <!-- here body palce is autofile by profile and home page content. the ejs layout library is responsible for this -->
+<main id="body-main">
+    <%-body%> 
 
-        <%-body%>          
+</main>
+                
 
         <%- include('_footer'); %>
         

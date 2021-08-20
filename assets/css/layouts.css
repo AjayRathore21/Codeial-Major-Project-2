@@ -1,4 +1,9 @@
-body{
-    margin: 0px;
-    text-align: center;
+body {
+  margin: 0px;
+  text-align: center;
+}
+
+body #body-main {
+  border: 2px dashed black;
+  background-color: gray;
 }
